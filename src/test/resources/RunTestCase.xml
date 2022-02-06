@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<suit name="Suite" parallel= "false">
-    <classes>
-<!--        <class name="Selenium1"/>-->
-        <class name="SearchLazada"/>
-    </classes>
-</suit>
+<suite name="Suite" parallel="false">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+    <test name="Sample Test Case">
+        <classes>
+            <class name="Selenium1"/>
+            <!--        <class name="SearchLazada"/>-->
+        </classes>
+    </test>
+
+</suite>

@@ -2,13 +2,18 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages.AdminPage;
+import pages.LoginPage;
 
 public class Selenium1 {
 
     WebDriver driver;
+    LoginPage login;
+    AdminPage admin;
 
     @BeforeTest
     public void init(){
@@ -22,10 +27,13 @@ public class Selenium1 {
     @Test
     public void TC_01(){
 
-//        driver.findElement(By.xpath("//tbody/tr[1]/td[2]/input[1]")).sendKeys("mgr327791");
-        driver.findElement(By.xpath("//input[@name='uid']")).sendKeys("mngr382943");
-        driver.findElement(By.xpath("//tbody/tr[2]/td[2]/input[1]")).sendKeys("UhuvAbA");
-        driver.findElement(By.xpath("//tbody/tr[3]/td[2]/input[1]")).click();
+        login = new LoginPage(driver);
+        admin = new AdminPage(driver);
+        login.Login();
+
+//        driver.findElement(By.xpath("//marquee[contains(text(),\"Welcome To Manager's Page of Guru99 Bank\")]")).sendKeys("Welcome To Manager's Page of Guru99 Bank");
+        //OR
+        Assert.assertEquals(admin.getWelcomeMessage(),"Welcome To Manager's Page of Guru99 Bank");
 
 
     }
