@@ -34,8 +34,6 @@ public class Selenium1 {
 //        driver.findElement(By.xpath("//marquee[contains(text(),\"Welcome To Manager's Page of Guru99 Bank\")]")).sendKeys("Welcome To Manager's Page of Guru99 Bank");
         //OR
         Assert.assertEquals(admin.getWelcomeMessage(),"Welcome To Manager's Page of Guru99 Bank");
-
-
     }
 
     @AfterTest
